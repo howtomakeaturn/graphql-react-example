@@ -1,20 +1,56 @@
+"use client";
+
 // import Image from 'next/image'
 // import styles from './page.module.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from './product'
+import useSWR from 'swr';
+
+const gql = `query {
+  products {
+    id
+    name
+    description
+    featured_image
+    price
+  },
+}`;
+
+const fetcher = () => fetch('https://graphql-laravel-example.tw/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: gql
+  }),
+})
+  .then((res) => res.json())
+  .then((result) => result.data);
 
 export default function Page() {
+  const { data, error } = useSWR('products', fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+
   return (
     <main>
       <Container>
         {/* Stack the columns on mobile by making one full-width and the other half-width */}
         <Row>
-          {[...Array(12)].map((x, i) =>
+          {data.products.map((product, i) =>
             <Col key={i} xs={12} md={6} lg={3}>
-              <div class="mt-3 mt-md-4">
-                <Product />
+              <div className="mt-3 mt-md-4">
+                <Product
+                  id={product.id}
+                  name={product.name}
+                  description={product.description}
+                  featured_image={product.featured_image}
+                  price={product.price}
+                />
               </div>
             </Col>
           )}

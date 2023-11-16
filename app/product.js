@@ -3,18 +3,20 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function Component() {
+function Component({ id, name, description, featured_image, price }) {
   return (
-    <Card>
-      <Card.Img variant="top" src="/next.svg" />
+    <Card className="text-center">
+      <Card.Img variant="top" src={ featured_image } style={{ height: '200px', objectFit: 'cover' }} />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>{ name }</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          { description }
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">View Product</Button>
       </Card.Body>
+      <Card.Footer className="text-muted">
+        Price: ${ price.toLocaleString() }
+      </Card.Footer>
     </Card>
   );
 }
