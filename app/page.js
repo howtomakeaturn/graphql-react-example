@@ -1,12 +1,22 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+// import Image from 'next/image'
+// import styles from './page.module.css'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function Page() {
   return (
     <main>
-      <div>
-        <p>Home page</p>
-      </div>
+      <Container>
+        {/* Stack the columns on mobile by making one full-width and the other half-width */}
+        <Row>
+          {[...Array(12)].map((x, i) =>
+            <Col key={i} xs={6} md={4} lg={2}>
+              xs=6 md=4 lg=2
+            </Col>
+          )}
+        </Row>
+      </Container>
     </main>
     // <main className={styles.main}>
     //   <div className={styles.description}>

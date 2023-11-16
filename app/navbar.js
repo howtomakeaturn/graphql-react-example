@@ -10,7 +10,7 @@ function Component() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand as={Link} href="/">React GraphQL Example</Navbar.Brand>
+        <Navbar.Brand as={Link} href="/">GraphQL React Example</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
