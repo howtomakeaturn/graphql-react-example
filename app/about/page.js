@@ -8,7 +8,13 @@ export default function Page() {
       <Container>
         <Row>
           <Col>
-            <p>About page</p>
+            <p class="mt-3 mt-md-4">This website is part of the following project:</p>
+            <p>
+              <a href="https://graphql-laravel-example.tw">https://graphql-laravel-example.tw</a>
+            </p>
+            <p>
+              <a href="https://github.com/howtomakeaturn/graphql-laravel-example">https://github.com/howtomakeaturn/graphql-laravel-example</a>
+            </p>
           </Col>
         </Row>
       </Container>

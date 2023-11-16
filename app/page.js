@@ -33,12 +33,40 @@ const fetcher = () => fetch('https://graphql-laravel-example.tw/graphql', {
 export default function Page() {
   const { data, error } = useSWR('products', fetcher);
 
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (error) return (
+    <Container>
+      <Row>
+        <Col>
+          <div className="mt-3">failed to load</div>
+        </Col>
+      </Row>
+    </Container>
+  );
+
+  if (!data) return (
+    <Container>
+      <Row>
+        <Col>
+          <div className="mt-3">loading...</div>
+        </Col>
+      </Row>
+    </Container>
+  );
 
   return (
     <main>
       <Container>
+        <Row>
+          <Col>
+            <div className="p-5 mt-3 mt-md-4 bg-light rounded-3">
+              <div className="container-fluid">
+                <h1 className="display-5 fw-bold">GraphQL React Example</h1>
+                <p className="col-md-8 fs-4">A comprehensive example project to show how to use GraphQL + React + Laravel in the real world!</p>
+                <a className="btn btn-primary btn-lg" href="https://graphql-laravel-example.tw/">Read More</a>
+              </div>
+            </div>
+          </Col>
+        </Row>
         {/* Stack the columns on mobile by making one full-width and the other half-width */}
         <Row>
           {data.products.map((product, i) =>
