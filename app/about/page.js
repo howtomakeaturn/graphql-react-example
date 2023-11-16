@@ -19,10 +19,5 @@ export default function Page() {
         </Row>
       </Container>
     </main>
-    // <main>
-    //   <div>
-    //     <p>About page</p>
-    //   </div>
-    // </main>
   )
 }
