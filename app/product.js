@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import Linkify from 'linkify-react';
 
 function Component({ id, name, description, featured_image, price, comments }) {
   const [show, setShow] = useState(false);
@@ -17,7 +18,9 @@ function Component({ id, name, description, featured_image, price, comments }) {
       <Card.Body>
         <Card.Title>{ name }</Card.Title>
         <Card.Text>
-          { description }
+          <Linkify>
+            { description }
+          </Linkify>
         </Card.Text>
         <Button variant="secondary" onClick={handleShow}>View Comments</Button>
       </Card.Body>
