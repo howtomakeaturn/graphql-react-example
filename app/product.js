@@ -27,15 +27,14 @@ function Component({ id, name, description, featured_image, price, comments }) {
       <Card.Footer className="text-muted">
         Price: ${ price.toLocaleString() }
       </Card.Footer>
-      <Modal size="lg" animation={false} show={show} onHide={handleClose}>
+      <Modal animation={false} show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div class="">
-            <h5>Related Comments</h5>
             {comments.map((comment, i) =>
-              <p key={i} className='mt-3 mb-0'>
+              <p key={i} className={'mb-0 ' + (i !== 0 ? 'mt-3' : '')}>
                 { comment.user.name }: { comment.content }
               </p>
             )}
