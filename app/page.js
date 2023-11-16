@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from './product'
 import useSWR from 'swr';
+import Newsletter from './newsletter'
 
 const gql = `query {
   products {
@@ -86,6 +87,11 @@ export default function Page() {
               </div>
             </Col>
           )}
+        </Row>
+        <Row>
+          <Col>
+            <Newsletter />
+          </Col>
         </Row>
       </Container>
     </main>
