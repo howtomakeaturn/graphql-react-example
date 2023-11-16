@@ -3,6 +3,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Product from './product'
 
 export default function Page() {
   return (
@@ -11,8 +12,10 @@ export default function Page() {
         {/* Stack the columns on mobile by making one full-width and the other half-width */}
         <Row>
           {[...Array(12)].map((x, i) =>
-            <Col key={i} xs={6} md={4} lg={2}>
-              xs=6 md=4 lg=2
+            <Col key={i} xs={12} md={6} lg={3}>
+              <div class="mt-3 mt-md-4">
+                <Product />
+              </div>
             </Col>
           )}
         </Row>
