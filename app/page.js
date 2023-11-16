@@ -15,6 +15,12 @@ const gql = `query {
     description
     featured_image
     price
+    comments {
+      content
+      user {
+        name
+      }
+    }
   },
 }`;
 
@@ -78,6 +84,7 @@ export default function Page() {
                   description={product.description}
                   featured_image={product.featured_image}
                   price={product.price}
+                  comments={product.comments}
                 />
               </div>
             </Col>
